@@ -70,9 +70,10 @@ int main( int argc, const char** argv )
         help();
         return -1;
     }
+    //Modificação feita para usar a camera externa, original ==>"...imputName.empty() ? 0 : ..."
     if( inputName.empty() || (isdigit(inputName[0]) && inputName.size() == 1) )
     {
-        int camera = inputName.empty() ? 0 : inputName[0] - '0';
+        int camera = inputName.empty() ? 1 : inputName[0] - '0';
         if(!capture.open(camera))
             cout << "Capture from camera #" <<  camera << " didn't work" << endl;
     }
@@ -199,7 +200,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         }
     }
     t = (double)getTickCount() - t;
-    printf( "detection time = %g ms\n", t*1000/getTickFrequency());
+    //printf( "detection time = %g ms\n", t*1000/getTickFrequency());
     for ( size_t i = 0; i < faces.size(); i++ )
     {
         Rect r = faces[i];
@@ -209,6 +210,9 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         Scalar color = colors[i%8];
         int radius;
 
+
+        //O cout abaixo esta mostrando no terminal as coordenadas(x,y) do centro da circunferencia onde foi encontrado o rosto
+        //ele apenas imprime quando a circunferencia for estabelecida
         double aspect_ratio = (double)r.width/r.height;
         if( 0.75 < aspect_ratio && aspect_ratio < 1.3 )
         {
@@ -216,6 +220,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
             center.y = cvRound((r.y + r.height*0.5)*scale);
             radius = cvRound((r.width + r.height)*0.25*scale);
             circle( img, center, radius, color, 3, 8, 0 );
+            cout << "\n" << cvRound((r.x + r.width*0.5)*scale) << "X" << cvRound((r.y + r.height*0.5)*scale) << endl;
         }
         else
             rectangle( img, cvPoint(cvRound(r.x*scale), cvRound(r.y*scale)),
