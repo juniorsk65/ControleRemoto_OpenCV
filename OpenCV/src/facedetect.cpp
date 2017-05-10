@@ -5,6 +5,7 @@
 
 using namespace std;
 using namespace cv;
+int xis,ypslon,raiou;
 
 static void help()
 {
@@ -200,7 +201,7 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         }
     }
     t = (double)getTickCount() - t;
-    //printf( "detection time = %g ms\n", t*1000/getTickFrequency());
+    //printf( "detection time = %g ms\n", t*1000/getTickFrequency());  << -- LINHA CORRESPONDENTE AO TEMPO DE EXECUÇÃO DO PROGRAMA
     for ( size_t i = 0; i < faces.size(); i++ )
     {
         Rect r = faces[i];
@@ -220,7 +221,10 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
             center.y = cvRound((r.y + r.height*0.5)*scale);
             radius = cvRound((r.width + r.height)*0.25*scale);
             circle( img, center, radius, color, 3, 8, 0 );
-            cout << "\n" << cvRound((r.x + r.width*0.5)*scale) << "X" << cvRound((r.y + r.height*0.5)*scale) << endl;
+            //cout << "\n" << cvRound((r.x + r.width*0.5)*scale) << "X" << cvRound((r.y + r.height*0.5)*scale) << endl;
+            xis = cvRound((r.x + r.width*0.5)*scale);
+            ypslon = cvRound((r.y + r.height*0.5)*scale);  
+            raiou = cvRound((r.width + r.height*0.5)*scale);         
         }
         else
             rectangle( img, cvPoint(cvRound(r.x*scale), cvRound(r.y*scale)),
@@ -246,4 +250,5 @@ void detectAndDraw( Mat& img, CascadeClassifier& cascade,
         }
     }
     imshow( "result", img );
+    cout << xis << "X" << ypslon << "   " << raiou << endl;
 }
