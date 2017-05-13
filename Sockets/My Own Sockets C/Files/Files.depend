@@ -15,3 +15,21 @@
 	<stdio.h>
 	<sys/socket.h>
 
+1494709894 source:/media/lucasnn/79DB2A362C6B27D0/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Sockets C/Client.c
+	<stdio.h>
+	<sys/socket.h>
+
+1494709875 source:/media/lucasnn/79DB2A362C6B27D0/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Sockets C/Server.c
+	<stdio.h>
+	<sys/socket.h>
+	<netinet/in.h>
+
+1494711528 source:/home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Sockets C/Client.c
+	<stdio.h>
+	<sys/socket.h>
+
+1494711567 source:/home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Sockets C/Server.c
+	<stdio.h>
+	<sys/socket.h>
+	<netinet/in.h>
+
