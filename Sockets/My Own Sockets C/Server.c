@@ -71,14 +71,55 @@ int main(int argc, char *argv[])
         printf("Erro de Accept. \n");
 
 
+    //////////////////////////////////////////////////////////
+    ///////////////////       RECV      //////////////////////
+    //////////////////////////////////////////////////////////
+
+    int status_recv = recv(socket_desc,  );
+    ///socket_desc     Descrição do Socket
+    ///recvBuf         void[], Armazena os bytes recebidos
+    ///bufLen          int, Tamanho da mensagem a ser transmitida
+    ///flags           int, opções especiais, valor padrão 0
+
+
+    if(status_recv >= 0)
+        printf("Recv com sucesso.Número de bytes recebidos: %d.\n", status_recv);
+    if(status_recv == -1)
+        printf("Erro de RECV. \n");
+
+
+
+    //////////////////////////////////////////////////////////
+    ///////////////////       SEND      //////////////////////
+    //////////////////////////////////////////////////////////
+
+    int status_send = send(socket_desc,);
+    ///socket_desc     Descrição do Socket
+    ///msg             const void[], Mensagem a ser transmitida
+    ///msgLen          int, tamanho da mensagem em bytes a ser transmitida
+    ///flags           int, opções especiais, valor padrão 0
+
+    if(status_recv >= 0)
+        printf("Recv com sucesso.Número de bytes transmitidos: %d.\n", status_send);
+    if(status_recv == -1)
+        printf("Erro de SEND. \n");
+
+
+    //////////////////////////////////////////////////////////
+    ///////////////////       CLOSE     //////////////////////
+    //////////////////////////////////////////////////////////
+
+    int status_close = close(socket_desc);
+    ///socket_desc     Descrição do Socket
+
+    if(status_close == 0)
+        printf("Socket fechado com sucesso.\n");
+    if(status_close == -1)
+        printf("Erro no encerramento do socket. \n");
 
 
 
 
-    //accept();
-    //recv();
-    //send();
-    //close();
 
 
 
