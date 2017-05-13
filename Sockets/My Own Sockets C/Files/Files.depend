@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1494518635 source:/media/visio01/79DB2A362C6B27D0/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets C/Client.c
+	<stdio.h>
+	<sys/socket.h>
+
+1494518695 source:/media/visio01/79DB2A362C6B27D0/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets C/Server.c
+	<stdio.h>
+	<sys/socket.h>
+
+1494518730 source:/home/visio01/Downloads/My Own Sockets C/Client.c
+	<stdio.h>
+	<sys/socket.h>
+
+1494518695 source:/home/visio01/Downloads/My Own Sockets C/Server.c
+	<stdio.h>
+	<sys/socket.h>
+

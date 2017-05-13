@@ -56,8 +56,10 @@ int main(int argc, char** argv)
                     std::cout << "received - " << line << endl;
                     std::cout << "END OF MENSSAGE"<<endl;
                     string linha_recebida(line);
-                    if(linha_recebida.compare("Sou o cara") == 0)
+                    if(linha_recebida.compare("Sou o cara") == 0){
                         std::cout << "É sim vc é o cara" << endl;
+                        stream->send("É sim, vc é o cara",1000);
+                    }
                     stream->send(line, len);
                 }
                 delete stream;
