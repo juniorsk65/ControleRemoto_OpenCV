@@ -6,50 +6,31 @@ using namespace cv;
 string cascadeName;
 string nestedCascadeName;
 
-int Facedetector::run(int argc, const char** argv)
+int Facedetector::run()
 {   
     /*int argc = 1;
     const char** argv;
     argv[1] = "--cascade=haarcascade_frontalface_alt.xml"; */
     VideoCapture capture;
     Mat frame, image;
-    string inputName;
+    //string inputName;
     bool tryflip;
     CascadeClassifier cascade, nestedCascade;
     double scale;
-    cv::CommandLineParser parser(argc, argv ,
-        "{help h||}"
-        "{cascade|../../data/haarcascades/haarcascade_frontalface_alt.xml|}"
-        "{nested-cascade|../../data/haarcascades/haarcascade_eye_tree_eyeglasses.xml|}"
-        "{scale|1|}{try-flip||}{@filename||}"
-    );
 
-    cascadeName =  parser.get<string>("cascade");
-    nestedCascadeName = parser.get<string>("nested-cascade");
-    scale = parser.get<double>("scale");
+    //cascadeName =  parser.get<string>("cascade");
+    cascadeName =  ("haarcascade_frontalface_alt.xml");
+    scale = 1;
     if (scale < 1)
         scale = 1;
-    //tryflip = parser.has("try-flip");
-    inputName = parser.get<string>("@filename");
-    if (!parser.check())
-    {
-        parser.printErrors();
-        return 0;
-    }
-    if ( !nestedCascade.load( nestedCascadeName ) )
-        cerr << "WARNING: Could not load classifier cascade for nested objects" << endl;
     if( !cascade.load( cascadeName ) )
     {
         cerr << "ERROR: Could not load classifier cascade" << endl;
         return -1;
     }
-    //Modificação feita para usar a camera externa, original ==>"...imputName.empty() ? 0 : ..."
-    if( inputName.empty() || (isdigit(inputName[0]) && inputName.size() == 1) )
-    {
-        int camera = inputName.empty() ? 1 : inputName[0] - '0';
-        if(!capture.open(camera))
+    if(!capture.open(camera))
             cout << "Capture from camera #" <<  camera << " didn't work" << endl;
-    }
+
     if( capture.isOpened() )
     {
         cout << "Video capturing has been started ..." << endl;
@@ -68,7 +49,6 @@ int Facedetector::run(int argc, const char** argv)
     }
     else
     {
-        cout << "Detecting face(s) in " << inputName << endl;
         if( !image.empty() )
         {
             detectAndDraw( image, cascade, nestedCascade, scale, tryflip );

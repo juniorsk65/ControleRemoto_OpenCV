@@ -13,13 +13,14 @@ class Facedetector{
 
     public:
         int xis,ypslon,raiou;
+        int camera = 1;
         Facedetector(){}
         ~Facedetector(){}
 
         void detectAndDraw( cv::Mat& img, cv::CascadeClassifier& cascade,
                     cv::CascadeClassifier& nestedCascade,
                     double scale, bool tryflip );
-        int run(int argc, const char** argv);
+        int run();
 };
 
 #endif // FACEDETECTOR_H  
