@@ -6,8 +6,11 @@ using namespace cv;
 string cascadeName;
 string nestedCascadeName;
 
-int main(int argc, const char** argv)
-{
+int Facedetector::run(int argc, const char** argv)
+{   
+    /*int argc = 1;
+    const char** argv;
+    argv[1] = "--cascade=haarcascade_frontalface_alt.xml"; */
     VideoCapture capture;
     Mat frame, image;
     string inputName;
@@ -57,7 +60,7 @@ int main(int argc, const char** argv)
                 break;
 
             Mat frame1 = frame.clone();
-            Facedetector::detectAndDraw( frame1, cascade, nestedCascade, scale, tryflip );
+            detectAndDraw( frame1, cascade, nestedCascade, scale, tryflip );
             char c = (char)waitKey(10);
             if( c == 27 || c == 'q' || c == 'Q' )
                 break;
@@ -68,7 +71,7 @@ int main(int argc, const char** argv)
         cout << "Detecting face(s) in " << inputName << endl;
         if( !image.empty() )
         {
-            Facedetector::detectAndDraw( image, cascade, nestedCascade, scale, tryflip );
+            detectAndDraw( image, cascade, nestedCascade, scale, tryflip );
             waitKey(0);
         }
     }

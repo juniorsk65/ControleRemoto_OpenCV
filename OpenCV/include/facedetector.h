@@ -5,6 +5,7 @@
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
 #include <iostream>
+#include <string>
 
 class Facedetector{
     private:
@@ -18,7 +19,7 @@ class Facedetector{
         void detectAndDraw( cv::Mat& img, cv::CascadeClassifier& cascade,
                     cv::CascadeClassifier& nestedCascade,
                     double scale, bool tryflip );
-
+        int run(int argc, const char** argv);
 };
 
 #endif // FACEDETECTOR_H  
