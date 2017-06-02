@@ -1,21 +1,12 @@
-#include "opencv2/objdetect.hpp"
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp"
-#include <iostream>
 #include "../include/facedetector.h"
 
 using namespace std;
 using namespace cv;
 
-void detectAndDraw( Mat& img, CascadeClassifier& cascade,
-                    CascadeClassifier& nestedCascade,
-                    double scale, bool tryflip );
-
 string cascadeName;
 string nestedCascadeName;
 
 int main(int argc, const char** argv)
-//int main()
 {
     VideoCapture capture;
     Mat frame, image;
@@ -66,7 +57,7 @@ int main(int argc, const char** argv)
                 break;
 
             Mat frame1 = frame.clone();
-            detectAndDraw( frame1, cascade, nestedCascade, scale, tryflip );
+            Facedetector::detectAndDraw( frame1, cascade, nestedCascade, scale, tryflip );
             char c = (char)waitKey(10);
             if( c == 27 || c == 'q' || c == 'Q' )
                 break;
@@ -77,14 +68,14 @@ int main(int argc, const char** argv)
         cout << "Detecting face(s) in " << inputName << endl;
         if( !image.empty() )
         {
-            detectAndDraw( image, cascade, nestedCascade, scale, tryflip );
+            Facedetector::detectAndDraw( image, cascade, nestedCascade, scale, tryflip );
             waitKey(0);
         }
     }
     return 0;
 }
 
-void detectAndDraw( Mat& img, CascadeClassifier& cascade,
+void Facedetector::detectAndDraw( Mat& img, CascadeClassifier& cascade,
                     CascadeClassifier& nestedCascade,
                     double scale, bool tryflip )
 {
