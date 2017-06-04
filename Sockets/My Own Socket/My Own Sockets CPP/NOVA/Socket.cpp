@@ -17,12 +17,6 @@ Socket::Socket(int port_num)
 
 }
 
-
-Socket::~Socket()
-{
-    //dtor
-}
-
 int Socket::enviar(char mensagem[], int tam) {
     return send(socket_desc, mensagem, tam, 0);
 

@@ -19,7 +19,7 @@ class Socket
     public:
         Socket(){};
         Socket(int port_num);
-        virtual ~Socket();
+        virtual ~Socket(){};
         int enviar(char menssagem[], int tam);
         int receber(char* menssagem);
 

@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1496581216 source:/home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets CPP/src/Socket.cpp
+	"Socket.h"
+	<stdio.h>
+
+1496582958 /home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets CPP/include/Socket.h
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<arpa/inet.h>
+
+1496584289 source:/home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets CPP/src/SocketClient.cpp
+	"SocketClient.h"
+
+1496584811 /home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets CPP/include/SocketClient.h
+	"Socket.h"
+	<string>
+
+1496583403 source:/home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets CPP/src/SocketServer.cpp
+	"SocketServer.h"
+
+1496583030 /home/lucasnn/GitProjects/ControleRemoto_OpenCV/Sockets/My Own Socket/My Own Sockets CPP/include/SocketServer.h
+	<Socket.h>
+

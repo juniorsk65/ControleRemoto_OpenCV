@@ -23,16 +23,23 @@ int main(int argc, char *argv[])
     ///0               Protocolo
 
     if(socket_desc >= 0)
-        printf("Socket criado com sucesso.\n");
+        printf("Socket n# %d criado com sucesso. \n", socket_desc);
     if(socket_desc == -1)
         printf("Não foi possível criar o socket. \n");
 
+    //////////////////////////////////////////////////////////
+    /////////////////      SOCKADDR_IN      //////////////////
+    //////////////////////////////////////////////////////////
 
     struct sockaddr_in server;
     memset(&server, 0, sizeof(server));
     server.sin_addr.s_addr = inet_addr("127.0.0.1");
     server.sin_family = AF_INET;
     server.sin_port = htons(port_num);
+
+    ///////////////////////////////////////////////////////////
+    ///////////////////      CONNECT     //////////////////////
+    ///////////////////////////////////////////////////////////
 
 
 
