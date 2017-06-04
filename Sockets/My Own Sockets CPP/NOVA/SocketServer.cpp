@@ -11,7 +11,7 @@ int SocketServer::boot(){
     struct sockaddr_in server;
     server.sin_addr.s_addr = inet_addr("127.0.0.1");
     server.sin_family = AF_INET;
-    server.sin_port = htons(12341);
+    server.sin_port = htons(12345);
 
     //////////////////////////////////////////////////////////
     ///////////////////      BIND      ///////////////////////
@@ -23,9 +23,9 @@ int SocketServer::boot(){
     ///size            Tamanho em bytes de Estrutura
 
     if(status_bind == 0)
-        printf("Bind ocorreu com sucesso. \n");
+        printf("\nBind ocorreu com sucesso. \n");
     else{
-        printf("Erro de bind. \n");
+        printf("\nErro de bind. \n");
         return 2;
     }
 
@@ -37,10 +37,10 @@ int SocketServer::boot(){
     ///socket_desc     Descrição do Socket
     ///queuelen        int numero de participantes ativos esperando conectar
     if(status_listen == 0){
-        printf("Listen ocorreu com sucesso. \n");
-   	    printf("Aguardando conexao na porta. \n");
+        printf("\nListen ocorreu com sucesso. \n");
+   	    printf("\nAguardando conexao na porta. \n");
     }else{
-        printf("Erro de listen. \n");
+        printf("\nErro de listen. \n");
         return 3;
     }
     return 0;
@@ -56,9 +56,9 @@ int SocketServer::aceitar() {
 
 
     if(socket_client >= 0)
-        printf("Accept criado com sucesso.\n");
+        printf("\nAccept criado com sucesso.\n");
     if(socket_client == -1){
-        printf("Erro de Accept. \n");
+        printf("\nErro de Accept. \n");
         return 4;
     }
     return 0;

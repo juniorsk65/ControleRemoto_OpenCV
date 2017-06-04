@@ -10,8 +10,8 @@
 int main(int argc, char *argv[])
 {
 
-    if(argc < 3)
-        printf("erro?");
+    //if(argc < 3)
+    //    printf("erro?");
 
     printf(argv[0]);
     printf(" ");
@@ -68,8 +68,10 @@ int main(int argc, char *argv[])
     int status_listen = listen(socket_desc, 5);
     ///socket_desc     Descrição do Socket
     ///queuelen        int numero de participantes ativos esperando conectar
-    if(status_listen == 0)
+    if(status_listen == 0){
         printf("Listen ocorreu com sucesso. \n");
+        printf("Aguardando conexao na porta. \n");
+    }
     else{
         printf("Erro de listen. \n");
         return 3;
@@ -85,7 +87,6 @@ int main(int argc, char *argv[])
     ///addrport        Estrutura com o endereço e descrição do socket
     ///size            Tamanho em bytes de Estrutura
 
-    printf("Aguardando conexao na porta. \n");
 
     if(socket_client >= 0)
         printf("Accept criado com sucesso.\n");

@@ -22,12 +22,13 @@ class Socket
         virtual ~Socket(){};
         int enviar(char menssagem[], int tam);
         int receber(char* menssagem);
+        void encerrar();
 
     protected:
         int socket_desc;
         int port_num;
         struct sockaddr_in server;
-        char * message [TMAX];
+        char * mensagem [TMAX];
 
     private:
 };
