@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <thread>
+#include <mutex>
 #include "facedetector.h"
 
 class SystemControl {
@@ -15,8 +16,8 @@ class SystemControl {
         int coord_x, coord_y;
 
         void qcomando(int x, int y);
-        void detector();
-        void coordenadas();
+        void thread_detector();
+        void thread_coordenadas();
 
 };
 

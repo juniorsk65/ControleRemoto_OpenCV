@@ -8,6 +8,7 @@ string nestedCascadeName;
 
 int Facedetector::run()
 {   
+    mutex.lock();
     VideoCapture capture;
     Mat frame, image;
     bool tryflip;
@@ -29,8 +30,10 @@ int Facedetector::run()
     if( capture.isOpened() )
     {
         cout << "Video capturing has been started ..." << endl;
+        mutex.unlock();
         for(;;)
-        {
+        {   
+            mutex.lock();
             capture >> frame;
             if( frame.empty() )
                 break;
@@ -44,6 +47,7 @@ int Facedetector::run()
             char c = (char)waitKey(10);
             if( c == 27 || c == 'q' || c == 'Q' )
                 break;
+            mutex.unlock();
         }
     }
     else
@@ -55,7 +59,6 @@ int Facedetector::run()
         }
     }
     return 0;
-    
 }
 
 void Facedetector::detectAndDraw( Mat& img, CascadeClassifier& cascade,

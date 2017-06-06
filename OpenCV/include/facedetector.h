@@ -6,6 +6,7 @@
 #include "opencv2/imgproc.hpp"
 #include <iostream>
 #include <string>
+#include <mutex>
 
 class Facedetector{
     private:
@@ -23,6 +24,7 @@ class Facedetector{
         int run();
         int getXis(){return xis;}
         int getYpslon(){return ypslon;}
+        std::mutex mutex;
         
 };
 #endif // FACEDETECTOR_H
