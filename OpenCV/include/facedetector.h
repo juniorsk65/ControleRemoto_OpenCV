@@ -21,6 +21,8 @@ class Facedetector{
                     cv::CascadeClassifier& nestedCascade,
                     double scale, bool tryflip );
         int run();
+        int getXis(){return xis;}
+        int getYpslon(){return ypslon;}
+        
 };
-
-#endif // FACEDETECTOR_H  
+#endif // FACEDETECTOR_H

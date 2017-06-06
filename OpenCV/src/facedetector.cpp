@@ -8,17 +8,12 @@ string nestedCascadeName;
 
 int Facedetector::run()
 {   
-    /*int argc = 1;
-    const char** argv;
-    argv[1] = "--cascade=haarcascade_frontalface_alt.xml"; */
     VideoCapture capture;
     Mat frame, image;
-    //string inputName;
     bool tryflip;
     CascadeClassifier cascade, nestedCascade;
     double scale;
 
-    //cascadeName =  parser.get<string>("cascade");
     cascadeName =  ("haarcascade_frontalface_alt.xml");
     scale = 1;
     if (scale < 1)
@@ -40,6 +35,10 @@ int Facedetector::run()
             if( frame.empty() )
                 break;
 
+            double width, height;
+            width =  capture.get(int (CV_CAP_PROP_FRAME_WIDTH));
+            height =  capture.get(int (CV_CAP_PROP_FRAME_HEIGHT));
+            // cout << width << "X" << height << endl; 
             Mat frame1 = frame.clone();
             detectAndDraw( frame1, cascade, nestedCascade, scale, tryflip );
             char c = (char)waitKey(10);
@@ -56,6 +55,7 @@ int Facedetector::run()
         }
     }
     return 0;
+    
 }
 
 void Facedetector::detectAndDraw( Mat& img, CascadeClassifier& cascade,
@@ -113,8 +113,8 @@ void Facedetector::detectAndDraw( Mat& img, CascadeClassifier& cascade,
             //cout << "\n" << cvRound((r.x + r.width*0.5)*scale) << "X" << cvRound((r.y + r.height*0.5)*scale) << endl;
             xis = cvRound((r.x + r.width*0.5)*scale);
             ypslon = cvRound((r.y + r.height*0.5)*scale);  
-            raiou = cvRound((r.width + r.height*0.5)*scale); 
-            cout << xis << "X" << ypslon << "   " << raiou << endl;        
+            raiou = cvRound((r.width + r.height*0.5)*scale);
+            //cout << xis << "X" << ypslon << "   " << raiou << endl;        
         }
     }
     imshow( "result", img );
