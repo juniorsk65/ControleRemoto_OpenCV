@@ -6,21 +6,11 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
+int socket_desc;
 
-int main(int argc, char *argv[])
-{
-
-    //if(argc < 3)
-    //    printf("erro?");
-
-    printf(argv[0]);
-    printf(" ");
-    printf(argv[1]);
+int criando_socket(){
     
-    printf("\n");
-
-    int socket_desc;
-
+    printf("\n");  
     socket_desc = socket(AF_INET, SOCK_STREAM, 0);
     ///AF_INET         IP versão 4
     ///SOCK_STREAM     Orientado a TCP
@@ -32,6 +22,31 @@ int main(int argc, char *argv[])
         printf("Não foi possível criar o socket. \n");
         return 1;
     }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+
+    //if(argc < 3)
+    //    printf("erro?");
+
+    
 
 
     //////////////////////////////////////////////////////////

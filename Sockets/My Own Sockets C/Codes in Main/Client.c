@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     if(argc < 2)
         return -1;
-    int port_num = 12341;
+    int port_num = 66666;
     //argv[2] = port_num;
     
 	int socket_desc;

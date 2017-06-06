@@ -12,6 +12,7 @@ class SocketServer : public Socket
         virtual ~SocketServer(){};
         int aceitar();
         int boot();
+        int receber(char mensagem[]);
     private:
         struct sockaddr client;
 

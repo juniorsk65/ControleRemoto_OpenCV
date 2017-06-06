@@ -26,7 +26,7 @@ int main(int argv, char * argc[])
 
      if (server) {
          SocketServer  socketS;
-         socketS = SocketServer(12345);
+         socketS = SocketServer(66666);
          std::cout<<"boot r:"<< socketS.boot();
          std::cout<<"Aceitar :"<< socketS.aceitar();
          std::cout<<"Receber :"<< socketS.receber(buffer);
@@ -35,7 +35,7 @@ int main(int argv, char * argc[])
      }
      else {
      	std::cout <<"Cliente"<<std::endl;
-        SocketClient *socketC = new SocketClient(12345, "127.0.0.1");
+        SocketClient *socketC = new SocketClient(66666, "127.0.0.1");
         socketC->conectar();
         socketC->enviar(texto_env, strlen(texto_env));
      	socketC->encerrar();
