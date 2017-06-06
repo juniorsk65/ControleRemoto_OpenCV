@@ -1,4 +1,4 @@
-#include "Socket.h"
+#include "../include/Socket.h"
 
 #include <stdio.h>
 
@@ -31,7 +31,7 @@ void Socket::encerrar(){
 
 }
 
-int Socket::enviar(char mensagem[], int tam) {
+int Socket::enviar(const char mensagem[], int tam) {
 
 
 	//////////////////////////////////////////////////////////
@@ -46,7 +46,7 @@ int Socket::enviar(char mensagem[], int tam) {
     ///msg             const void[], Mensagem a ser transmitida
     ///msgLen          int, tamanho da mensagem em bytes a ser transmitida
     ///flags           int, opções especiais, valor padrão 0
-    memset(mensagem, '\0', sizeof(mensagem));
+
     if(status_send >= 0)
         printf("Recv com sucesso.Número de bytes transmitidos: %d.\n", status_send);
     if(status_send == -1)

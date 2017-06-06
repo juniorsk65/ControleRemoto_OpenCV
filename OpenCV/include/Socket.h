@@ -1,7 +1,7 @@
 #ifndef SOCKET_H
 #define SOCKET_H
 
-#define TMAX 20
+#define TMAX 2000
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +20,7 @@ class Socket
         Socket(){};
         Socket(int port_num);
         virtual ~Socket(){};
-        int enviar(char menssagem[], int tam);
+        int enviar(const char menssagem[], int tam);
         int receber(char* menssagem);
         void encerrar();
 
