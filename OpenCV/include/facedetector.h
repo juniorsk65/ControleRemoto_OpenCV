@@ -13,8 +13,12 @@ class Facedetector{
         
 
     public:
+        //Atributos
         int xis,ypslon,raiou;
-        int camera = 1;
+        int camera = 0;
+        std::mutex mutex;
+
+        //Metodos
         Facedetector(){}
         ~Facedetector(){}
 
@@ -24,7 +28,7 @@ class Facedetector{
         int run();
         int getXis(){return xis;}
         int getYpslon(){return ypslon;}
-        std::mutex mutex;
+        
         
 };
 #endif // FACEDETECTOR_H

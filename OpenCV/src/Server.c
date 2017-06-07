@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
     //////////////////////////////////////////////////////////
     char buffer[256];
     int i = 0;
-    for(i = 0; i<5;i++){
+    while(1){
         //bzero(buffer, 256);
         memset(&buffer,0,sizeof(buffer));
         int status_recv = recv(socket_client, buffer, 255, 0);

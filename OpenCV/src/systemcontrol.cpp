@@ -2,7 +2,7 @@
 #include "../include/SocketClient.h"
 using namespace std;
 
-SystemControl controle("192.168.0.18", 85);
+SystemControl controle("127.0.0.1", 6666);
 
 void SystemControl::thread_detector(){
     controle.face.run();

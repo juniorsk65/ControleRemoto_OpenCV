@@ -10,16 +10,21 @@ class SystemControl {
     private:
             
     public:
+        int coord_x, coord_y;
+        char signal;
         SocketClient cliente;
+        Facedetector face;
+
+
+
         SystemControl(){}
         SystemControl(std::string ip_, unsigned long port){
             cliente = SocketClient(port, ip_);
         }
         ~SystemControl(){}
-        Facedetector face;
-        int coord_x, coord_y;
+        
 
-        char signal;
+        
 
         void qcomando(int x, int y);
         void thread_detector();
