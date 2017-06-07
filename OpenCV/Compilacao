@@ -1,3 +1,4 @@
+
 -Executar o makefile
 	OBJFILES = ${wildcard ./src/*.cpp}
 	all:
@@ -8,8 +9,8 @@
 
 -Iniciarlizar o servidor
     ./server
-
 -Depois passar como parametro o classificador
 
-	./main --cascade=face.xml
-	./main --cascade=face.xml --nested-cascade=eye.xml
+	#./main --cascade=face.xml
+	#./main --cascade=face.xml --nested-cascade=eye.xml
+    ./main

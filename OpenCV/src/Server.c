@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     printf(argv[0]);
     printf(" ");
     printf(argv[1]);
-    
     printf("\n");
 
     int socket_desc;
